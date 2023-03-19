@@ -8,6 +8,6 @@ fun Context.isHasConnection(): Boolean {
     return networkStateManager.isHasConnection(this)
 }
 
-fun Context.isNetworkAvailable(): Boolean {
+fun Context.isInternetAvailable(): Boolean {
     return networkStateManager.isInternetAvailable()
 }
