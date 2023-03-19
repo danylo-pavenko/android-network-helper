@@ -14,13 +14,20 @@ class NetworkStateManager: INetworkStateManager {
     override fun isHasConnection(context: Context): Boolean {
         val connManager = context.getSystemService<ConnectivityManager>()
         val networkCapabilities = connManager?.getNetworkCapabilities(connManager.activeNetwork)
-        if (networkCapabilities == null) {
-            return false
+        return if (networkCapabilities == null) {
+            false
         } else {
-            return networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
+            networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
                     networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED) &&
                     networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_SUSPENDED)
         }
+    }
+
+    @SuppressLint("MissingPermission")
+    override fun isWifiConnection(context: Context): Boolean {
+        val connManager = context.getSystemService<ConnectivityManager>()
+        val networkCapabilities = connManager?.getNetworkCapabilities(connManager.activeNetwork)
+        return networkCapabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ?: false
     }
 
     override fun isInternetAvailable(connectionTimeout: Int): Boolean {

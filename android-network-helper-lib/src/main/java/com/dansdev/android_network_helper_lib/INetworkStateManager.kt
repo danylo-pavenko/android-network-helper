@@ -7,4 +7,6 @@ interface INetworkStateManager {
     fun isHasConnection(context: Context): Boolean
 
     fun isInternetAvailable(connectionTimeout: Int = 1000): Boolean
+
+    fun isWifiConnection(context: Context): Boolean
 }
