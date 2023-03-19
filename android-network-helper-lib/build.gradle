@@ -42,15 +42,15 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
-publishing {
-    publications {
-        release(MavenPublication) {
-            groupId = 'com.github.danylo-pavenko'
-            artifactId = 'android-network-helper-lib'
-            version = '0.1.1'
-
-            afterEvaluate {
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
                 from components.release
+
+                groupId = 'com.github.danylo-pavenko'
+                artifactId = 'android-network-helper-lib'
+                version = '0.1.2'
             }
         }
     }
