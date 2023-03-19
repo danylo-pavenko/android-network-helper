@@ -23,5 +23,4 @@ dependencies {
     implementation 'com.github.danylo-pavenko:android-network-helper:<latest_version>'
 }
 ```
-3. For using, you can just use `INetworkStateManager` interface with `NetworkStateManager` implementation. Or using extension function with `Context.isNetworkAvailable` or `Context.isHasConnection` functions.
-
+3. For using, you can just use `INetworkStateManager` interface with `NetworkStateManager` implementation. Or using extension function with `Context.isNetworkAvailable`, `Context.isHasConnection` or `Context.isWifiConnection` functions.
